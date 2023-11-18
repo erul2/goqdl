@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  goqdl:
+    container_name: goqdl
+    image: mir404/goqdl:latest-dev
+    restart: always
+    #    entrypoint: ["go", "run", "cmd/bot/main.go"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+      #      target: development
+      target: production
+    environment:
+      BOT_TOKEN: "5385598859:AAGWqd8nYppMPWhftIEZ8yhp0eNwRhUC0Qg"
+      QOBUZ_EMAIL: "hioxlpye@uploadplaystore.com"
+      QOBUZ_PASSWORD: "Pss9Oz199"
+      QOBUZ_DOWNLOAD_DIR: "/downloads"
+      QOBUZ_DOWNLOAD_QUALITY: "7"
+    volumes:
+      - ./:/go/src/app
